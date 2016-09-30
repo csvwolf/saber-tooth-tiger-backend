@@ -1,3 +1,4 @@
+/// <reference path="../typings/index.d.ts" />
 {
     "rules": {
         "class-name": true,
@@ -22,7 +23,7 @@
         ],
         "quotemark": [
             true,
-            "double"
+            "single"
         ],
         "semicolon": [
             true,
@@ -54,5 +55,6 @@
             "check-separator",
             "check-type"
         ]
-    }
+    },
+    "extends": "tslint-config-typings"
 }
