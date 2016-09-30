@@ -1,0 +1,22 @@
+{
+  "name": "saber-tooth-tiger-backend",
+  "version": "1.0.0",
+  "description": "SMU-MSTC 官方新系统后端，搞个大新闻。从报名到活动一体化服务。之后可以提供手机版。",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-tslint": "^6.1.2",
+    "gulp-typescript": "^3.0.1",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
+  },
+  "dependencies": {
+    "koa": "^1.2.4"
+  }
+}
