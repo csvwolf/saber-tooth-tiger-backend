@@ -4,7 +4,7 @@ const crypto = require('../lib/crypto');
 
 const checkEmpty = async function(ctx, next) {
   ctx.reqBody = {};
-  const checkedList = ['username', 'password', 'comfirmedPassword', 'academy', 'classname', 'realname', 'phone', 'signUpDepartment'];
+  const checkedList = ['username', 'password', 'confirmedPassword', 'academy', 'classname', 'realname', 'phone', 'signUpDepartment'];
   Object.keys(ctx.request.body).map(key => ctx.reqBody[key] = ctx.request.body[key].trim());
 
   let isEmpty = checkedList.reduce((isEmpty, key) => isEmpty || !ctx.reqBody[key], false);
@@ -16,13 +16,13 @@ const checkValidate = async function(ctx, next) {
   let {
     username,
     password,
-    comfirmedPassword,
+    confirmedPassword,
     phone,
   } = ctx.reqBody;
 
-  const error = password !== comfirmedPassword || !/^1\d{10}/.test(phone) || !/^\d+$/.test(username);
+  const error = password !== confirmedPassword || !/^1\d{10}/.test(phone) || !/^\d+$/.test(username);
   const result = await User.findUser({username});
-  if (error || result) ctx.body = { error: true };
+  if (error || result) ctx.body = { error: true};
   else await next();
 };
 
