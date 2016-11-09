@@ -6,7 +6,7 @@
     "start": "./node_modules/.bin/nodemon bin/run",
     "koa": "./node_modules/.bin/runkoa bin/www",
     "pm2": "pm2 start bin/run ",
-    "test": "./node_modules/.bin/mocha --harmony $(find test -name '*.js')"
+    "test": "mocha --harmony --recursive"
   },
   "dependencies": {
     "co": "^4.6.0",

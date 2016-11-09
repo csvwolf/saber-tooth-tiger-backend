@@ -7,7 +7,7 @@ const checkEmpty = async function(ctx, next) {
   const checkedList = ['username', 'password', 'confirmedPassword', 'academy', 'classname', 'realname', 'phone', 'signUpDepartment'];
   Object.keys(ctx.request.body).map(key => ctx.reqBody[key] = ctx.request.body[key].trim());
 
-  let isEmpty = checkedList.reduce((isEmpty, key) => isEmpty || !ctx.reqBody[key], false);
+  let isEmpty = checkedList.every(key => !ctx.reqBody[key]);
   if (isEmpty) ctx.body = { error: true };
   else await next();
 };
