@@ -19,7 +19,6 @@ const UserSchema = new Schema({
 const User = mongoose.model('User', UserSchema);
 
 exports.createUser = function(userInfo) {
-  console.log(userInfo);
   return new User(userInfo).save();
 };
 

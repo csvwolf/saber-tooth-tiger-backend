@@ -15,14 +15,13 @@ const checkEmpty = async function(ctx, next) {
 
 const checkValidate = async function(ctx, next) {
   let {
-    username,
     password,
     confirmedPassword,
     phone,
   } = ctx.reqBody;
 
   const error = password !== confirmedPassword || !/^1\d{10}/.test(phone);
-  const result = await User.findUser({username});
+  const result = await User.findUser({ username: ctx.session.username });
   if (error || result) ctx.body = { error: true};
   else await next();
 };
