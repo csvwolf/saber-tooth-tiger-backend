@@ -6,16 +6,19 @@ const json = require('koa-json');
 // const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
+const session = require('koa-session');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 
+app.keys = ['hello world'];
+
 // middlewares
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
-
+app.use(convert(session(app)));
 // logger
 app.use(async (ctx, next) => {
   const start = new Date();

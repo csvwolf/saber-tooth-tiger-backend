@@ -8,6 +8,8 @@ const UserSchema = new Schema({
   academy: String,  // 自动填入
   classname: String,  // 自动填入
   realname: String, // 自动填入
+  grade: Number,
+  major: String,
   signUpDepartment: [String], // 报名的部门
   joinedDepartment: [String],   // 已加入的部门
   premission: String,
@@ -17,7 +19,6 @@ const UserSchema = new Schema({
 const User = mongoose.model('User', UserSchema);
 
 exports.createUser = function(userInfo) {
-  console.log(userInfo);
   return new User(userInfo).save();
 };
 
